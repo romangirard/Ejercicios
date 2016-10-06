@@ -1,0 +1,8 @@
+Este algoritmo hace referencia a la capacidad de medir la probabilidad de suposición 
+que tiene un determinado "objeto", segun los datos proporcionados, de pertenecer al "grupo" 
+de elementos con las mismas caracteristicas que se encuentren a menor distancia del mismo y posean 
+mayor densidad en el espacio a analizar,siendo estos, prototipos de una/s cierta/s clases de "objetos". 
+Esto lo hace evaluando "k" elementos a "su alrededor". 
+Cuando se cargan las caracterisitcas de los prototipos no se da ningun indicio de la dispocision
+"en el espacio" (x,y) que van a tener estos.
+
