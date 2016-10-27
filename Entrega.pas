@@ -34,8 +34,11 @@ var       datos : file of registro;
           c : integer;
           WP : real;
           LP : real;
-         // D : real;
+          V : Integer;
+          T : string;
+          opcion : Integer;
           const k=3;
+      
 
           
     
@@ -48,10 +51,11 @@ var       datos : file of registro;
 
           function tipos(x1 : real; y1 : real) : string;
             var Aux_distancia : real;
-              aux_datos : registro;
-                     Ver: integer;
-          Ss : integer;
-          Vir : integer;
+                aux_datos : registro;
+                Ver: integer;
+                Ss : integer;
+                Vir : Integer;
+                i:integer;
             begin
               Ver := 0;
               Ss := 0;
@@ -77,11 +81,9 @@ var       datos : file of registro;
                                   end;
 
                       end;
-                 end;
-                                 
+                 end;        
                 for i := 1 to k do
                 begin
-                              
                                 if Muestras[i].Species = 'versicolor' then
                                 begin
                                     Ver := ver + 1;
@@ -98,7 +100,6 @@ var       datos : file of registro;
                                     end;
                                  end; 
                                  end;
-
                                  if ver > Ss then
                                  begin
                                     if ver > vir then
@@ -123,16 +124,15 @@ var       datos : file of registro;
                                  end;
                  end;
                         
-                
-          
-
 begin
+writeln('Si quiere verificar la especie de planta presione 1, para saber el porcentaje de acierto presione 2');
 
 Ver := 1;
 Ss := 1;
 Vir := 1;
 s := 1;
 c := 1;
+V := 0;
 
 assign(datos, 'iris.dat');
 
@@ -184,9 +184,29 @@ while not eof(datos) do
           end;
     end;
   end;
+ close(datos);
 
-close(datos);
+ ReadLn (opcion);
 
-//writeln(tipos(10,10));
-
+if opcion = 1 then
+begin
+WriteLn ('Ingrese el largo de la planta');
+readln(LP);
+WriteLn ('Ingrese el ancho de la planta');
+readln(WP);
+T := tipos(LP,WP);
+writeln(T);
+end
+else
+begin
+for i := 1 to 30 do
+  begin
+ 
+      if  tipos(Testeo[i].Petal_Length, Testeo[i].Petal_Width) = testeo[i].Species then
+        begin
+            V := V+1;
+        end;
+  end;
+writeln((V/30*100):3:2,'%');
+end;
 end.

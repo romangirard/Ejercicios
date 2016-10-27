@@ -1,0 +1,9 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "C:\\FPC\\3.0.0\\bin\\i386-win32\\ppcrossx64.exe",
+    "isShellCommand": true,
+    "args": ["${file}"],
+    "showOutput": "always"
+}
